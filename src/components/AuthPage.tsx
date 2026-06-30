@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, User, ShieldAlert, CheckCircle, ArrowRight } from 'lucide-react';
 import axios from 'axios';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+const BACKEND_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 interface AuthPageProps {
   onLoginSuccess: (user: { id: number; name: string; email: string; role: string }) => void;

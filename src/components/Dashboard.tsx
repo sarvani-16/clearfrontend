@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { CompareSlider } from './CompareSlider';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+const BACKEND_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 interface ImageRecord {
   id: number;
