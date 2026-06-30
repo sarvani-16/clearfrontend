@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-900: #05050a;
+  --color-dark-850: #0b0c16;
+  --color-dark-800: #121324;
+  --color-dark-700: #1e203a;
+  --color-dark-600: #2d3056;
+  
+  --color-accent-cyan: #00f0ff;
+  --color-accent-purple: #9d4edd;
+  --color-accent-pink: #ff007f;
+  --color-accent-blue: #3a86c8;
+  
+  --background-image-grid-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
+  
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.2), 0 0 10px rgba(0, 240, 255, 0.2); }
+    100% { box-shadow: 0 0 15px rgba(0, 240, 255, 0.6), 0 0 25px rgba(0, 240, 255, 0.4); }
+  }
+}
+
+@utility glass-panel {
+  background: rgba(18, 19, 36, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@utility glass-card-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-dark-900 text-slate-100 font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 10% 20%, rgba(157, 78, 221, 0.15) 0px, transparent 50%),
+      radial-gradient(at 90% 80%, rgba(0, 240, 255, 0.12) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* Custom scrollbar matching dark sci-fi aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05050a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(157, 78, 221, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.6);
+}
+
+/* Before & After comparison slider styles */
+.slider-handle::before,
+.slider-handle::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: #00f0ff;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider-handle::before {
+  top: -1000px;
+  bottom: 24px;
+}
+
+.slider-handle::after {
+  top: 24px;
+  bottom: -1000px;
+}
+
+/* Custom glowing effects */
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 10px rgba(157, 78, 221, 0.5), 0 0 20px rgba(157, 78, 221, 0.2);
+}
+
+/* Animated gradient background */
+@keyframes gradient-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-bg 8s ease infinite;
+}
