@@ -1,4 +1,4 @@
-import { Component, useState, useEffect } from 'react';
+import { Component, useState } from 'react';
 import type { ErrorInfo, ReactNode } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';

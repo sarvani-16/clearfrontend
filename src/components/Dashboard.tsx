@@ -489,8 +489,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ user }) => {
       if (reconstructResponse.data.reconstruction_badge) {
         setEngineBadge(reconstructResponse.data.reconstruction_badge);
       }
-      if (reconstructResponse.data.reconstruction_model) {
-        setEngineName(reconstructResponse.data.reconstruction_model);
+      if (reconstructResponse.data.reconstruction_badge) {
+        setEngineName(reconstructResponse.data.reconstruction_badge);
       }
       addToast("AI reconstruction pipeline complete!", "success");
       fetchHistory();
@@ -924,11 +924,11 @@ export const Dashboard: React.FC<DashboardProps> = ({ user }) => {
                     </h4>
                     {activeImage.output_path && (
                       <span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${
-                        (activeImage.reconstruction_model || engineName) === 'Stable Diffusion XL'
+                        (activeImage.reconstruction_badge || engineName) === 'Stable Diffusion XL'
                           ? 'bg-accent-purple/10 text-accent-purple border border-accent-purple/30'
                           : 'bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/30'
                       }`}>
-                        {activeImage.reconstruction_model || engineName}
+                        {activeImage.reconstruction_badge || engineName}
                       </span>
                     )}
                   </div>
@@ -1028,7 +1028,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ user }) => {
                   <div className="glass-panel rounded-xl p-4">
                     <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Reconstruction Engine</span>
                     <span className="text-lg font-bold text-accent-purple truncate block">
-                      {activeImage.output_path ? (activeImage.reconstruction_model || engineName) : engineName}
+                      {activeImage.output_path ? (activeImage.reconstruction_badge || engineName) : engineName}
                     </span>
                     <span className="block text-[10px] text-slate-400 mt-0.5">Active AI backend</span>
                   </div>
